@@ -30,23 +30,31 @@ const criarItem = (urlImagem) => {
 
 const carregarGaleria = () => imagens.forEach(criarItem)
 
-const criarSlide = (urlImagem) => {
+const criarSlide = (urlImagem, indice, arr) => {
     const container = document.querySelector(".slide-container")
     const novoDiv = document.createElement("div")
     novoDiv.classList.add("slide")
     novoDiv.id = limparId(urlImagem)
+
+    const indiceAnterior = indice <=0 ? arr.length - 1 : indice - 1
+    const idAnterior = limparId(arr[indiceAnterior]) 
+    
+    const indiceProximo = indice >= arr.length - 1 ? 0 : indice + 1
+    const idProximo = limparId(arr[indiceProximo]) 
+
     novoDiv.innerHTML = `
         <div class="imagem-container">
             <a href="" class="icones fechar">&#128473;</a>
-            <a href="#zenitsu-agatsuma" class="icones anterior">&#171;</a>
+            <a href="#${idAnterior}" class="icones anterior">&#171;</a>
             <img src="${urlImagem}" alt="">
-            <a href="#giyu-tomioka" class="icones proximo">&#187;</a>
+            <a href="#${idProximo}" class="icones proximo">&#187;</a>
         </div>
     `
     container.appendChild(novoDiv)
 }
 
 const carregarSlide = (imagens) => imagens.forEach(criarSlide)
+// o forEacho manda o elemento, indice e o array
 
 carregarGaleria(imagens)
 carregarSlide(imagens)
