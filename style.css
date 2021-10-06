@@ -7,10 +7,12 @@
 body {
     width: 100vw;
     height: 100vh;
+    padding: 30px;
     display: flex;
     flex-direction: column;
-    background-color: #d4ce91;
+    background-color: #b3edf5;
     color: rgb(88, 87, 87);
+    overflow-x: hidden;
 }
 
 header {
@@ -19,6 +21,26 @@ header {
 
 main {
     flex-grow: 1;
+}
+
+.pesquisa-container {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.pesquisa-container input {
+    width: 80%;
+    height: 50%;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 20px;
+    background-color: transparent;
+    border: 2px solid  #69a4ad;
+    color: #69a4ad;
 }
 
 .galeria-container {
